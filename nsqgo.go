@@ -5,8 +5,13 @@ import (
 	"time"
 
 	"github.com/youzan/go-nsq"
+	"github.com/jinzhu/configor"
 )
 
+var Conf = struct {
+	Nsqlookupd string
+	Aa string
+}{}
 
 var (
 	pubMu = &sync.RWMutex{}
@@ -21,6 +26,7 @@ type Config struct {
 
 var DefaultConfig = func() *Config {
 	cfg := nsq.NewConfig()
+	configor.Load(&Conf, "config/config.yml")
 	return &Config{
 		config: cfg,
 		lookAddr: Conf.Nsqlookupd,
