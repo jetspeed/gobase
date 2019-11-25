@@ -13,5 +13,5 @@ func main() {
 		Publish("qlc", []byte("from nsqgo"))
 		w.Write([]byte("welcome"))
 	})
-	http.ListenAndServe(":3002", r)
+	http.ListenAndServe(":3000", r)
 }

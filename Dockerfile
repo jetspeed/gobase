@@ -8,5 +8,6 @@ CMD ["./nsqgo"]
 
 
 FROM alpine:latest AS prod
-COPY --from=build /home/was/nsqgo/nsqgo .
+WORKDIR /home/was
+COPY --from=build /home/was/nsqgo/nsqgo /home/was/nsqgo
 CMD ["./nsqgo"]
