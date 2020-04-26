@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm --name nsqgo -v /home/was/pro/nsqgo:/home/was/nsqgo -it nsqgo:$1 /bin/sh
+docker run --rm --name nsqgo -v $1:/home/was/nsqgo -it nsqgo:$2 /bin/sh
